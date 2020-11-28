@@ -10,10 +10,10 @@ import (
 )
 
 func CalcX11Hash(bytesInput []byte) []byte {
-	input := C.CString(string(bytesInput))
-	defer C.free(unsafe.Pointer(input))
-
-	inputLen := C.uint(len(bytesInput))
+	// avoid of the situation of empty bytes array
+	bytesInput = append(bytesInput, byte(0x0))
+	input := (*C.char)(unsafe.Pointer(&bytesInput[0]))
+	inputLen := C.uint(len(bytesInput) - 1)
 
 	bytesOutput := make([]byte, 32)
 	output := (*C.char)(unsafe.Pointer(&bytesOutput[0]))
