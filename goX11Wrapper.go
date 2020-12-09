@@ -1,7 +1,7 @@
 package goX11
 
-// #cgo CFLAGS: -Ix11
-// #cgo LDFLAGS: x11/libx11.a
+// #cgo CFLAGS: -Ix11 -IgoX11/x11
+// #cgo LDFLAGS: -Lx11 -LgoX11/x11 -lx11
 // #include "x11.h"
 import "C"
 import (
