@@ -1,8 +1,8 @@
 package goX11
 
-// #cgo CFLAGS: -Ix11/x11
+// #cgo CFLAGS: -Ix11
 // #cgo LDFLAGS: x11/libx11.a
-// #include "x11/x11.h"
+// #include "x11.h"
 import "C"
 import (
 	"encoding/hex"
